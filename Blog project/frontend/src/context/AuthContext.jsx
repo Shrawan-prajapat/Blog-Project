@@ -8,10 +8,10 @@ const AuthProvider=({children})=>{
         return { token: saveToken|| null }
     })
     useEffect(()=>{
-      if(auth?.token)[
-        localStorage.setItem('token',JSON.stringify(auth.token))
-      ]
-    },[auth])
+      if(auth?.token){
+        localStorage.setItem('token',auth.token)
+      }
+    },[auth?.token])
     return(
         <AuthContext.Provider value={[auth,setAuth]}>
             {children}
